@@ -50,7 +50,16 @@ public class BankAccount {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BankAccount that = (BankAccount) o;
+        return id == that.id &&
+                holderName.equals(that.holderName);
+    }
+
+    @Override
     public int hashCode() {
-        return id+holderName.hashCode();
+        return Objects.hash(id, holderName);
     }
 }
